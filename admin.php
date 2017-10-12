@@ -19,11 +19,20 @@
   </tr>
  </table>
 <p>Загрузите файл с тестами в формате json:</p>
-<form enctype="multipart/form-data" action="list.php" method="POST">
+<form enctype="multipart/form-data" action="admin.php" method="POST">
 Файл: <input name="userfile" type="file" />
 <br />
 <input type="submit" value="Загрузить">
 </form>
+<?php
+	if(!empty($_FILES)){
+		$file_name = $_FILES['userfile']['name'];
+		$up_path = '';
+		$tmp_file = $_FILES['userfile']['tmp_name'];
+		move_uploaded_file($tmp_file, $up_path . $file_name);					
+		echo 'Файл теста загружен!';
+}
+?>
 </table>
 </body>
 </html>
