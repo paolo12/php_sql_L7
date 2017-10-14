@@ -30,7 +30,7 @@
 		$up_path = '';
 		$tmp_file = $_FILES['userfile']['tmp_name'];
 		move_uploaded_file($tmp_file, $up_path . $file_name);					
-		echo 'Файл теста загружен!';
+		header("Location: list.php");
 }
 ?>
 </table>
