@@ -47,9 +47,9 @@ else if(!empty($_POST)){
 	}	
 	
 	$string = $_POST["username"].', ваше количество баллов: '.$n;
-	$im     = imagecreatefrompng("certificate.png");
+	$im     = imagecreatefrompng(__DIR__.'/certificate.png');
 	$orange = imagecolorallocate($im, 220, 210, 60);
-	$font = 'hermanomayor.ttf';
+	$font = __DIR__.'/hermanomayor.ttf';
 	imagettftext ($im, 16 , 0 , 130, 190 , $orange , $font , $string);
 	header("Content-type: image/png; charset=utf-8");
 	imagepng($im);
